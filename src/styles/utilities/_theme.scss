@@ -1,0 +1,17 @@
+@use 'variables' as *;
+
+.text-primary {
+  color: $primary;
+}
+
+.text-secondary {
+  color: $secondary;
+}
+
+.bg-primary {
+  background-color: $primary;
+}
+
+.bg-secondary {
+  background-color: $secondary;
+}

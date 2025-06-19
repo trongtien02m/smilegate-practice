@@ -1,0 +1,15 @@
+@use 'variables' as *;
+
+@each $key, $value in $spacing-scale {
+  .gap-#{$key} {
+    gap: $value;
+  }
+
+  .gap-x-#{$key} {
+    column-gap: $value;
+  }
+
+  .gap-y-#{$key} {
+    row-gap: $value;
+  }
+}

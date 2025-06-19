@@ -1,0 +1,40 @@
+@use 'variables' as *;
+
+@each $name, $size in $font-sizes {
+  .text-#{$name} {
+    font-size: $size;
+  }
+}
+
+@each $weight-name, $weight-value in $font-weights {
+  .font-#{$weight-name} {
+    font-weight: $weight-value;
+  }
+}
+
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+.lowercase {
+  text-transform: lowercase;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

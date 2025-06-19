@@ -1,0 +1,47 @@
+@use 'variables' as *;
+@use '../mixins/breakpoints' as *;
+
+.hidden {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.flex {
+  display: flex;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+// Responsive display classes
+@each $bp, $size in $breakpoints {
+  @include respond($bp) {
+    .#{$bp}\:hidden {
+      display: none;
+    }
+
+    .#{$bp}\:block {
+      display: block;
+    }
+
+    .#{$bp}\:flex {
+      display: flex;
+    }
+
+    .#{$bp}\:inline-block {
+      display: inline-block;
+    }
+  }
+}

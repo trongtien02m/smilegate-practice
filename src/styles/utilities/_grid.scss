@@ -1,0 +1,36 @@
+@use 'variables' as *;
+@use '../mixins/breakpoints' as *;
+
+.grid {
+  display: grid;
+}
+
+@for $i from 1 through 12 {
+  .grid-rows-#{$i} {
+    grid-template-rows: repeat(#{$i}, minmax(0, 1fr));
+  }
+
+  @each $bp, $val in $breakpoints {
+    @include respond($bp) {
+      .#{$bp}\:grid-rows-#{$i} {
+        grid-template-rows: repeat(#{$i}, minmax(0, 1fr));
+      }
+    }
+  }
+}
+
+@for $i from 1 through 12 {
+  .grid-cols-#{$i} {
+    grid-template-columns: repeat(#{$i}, minmax(0, 1fr));
+  }
+
+  @each $bp, $val in $breakpoints {
+    @include respond($bp) {
+      @at-root {
+        .#{$bp}\:grid-cols-#{$i} {
+          grid-template-columns: repeat(#{$i}, minmax(0, 1fr));
+        }
+      }
+    }
+  }
+}

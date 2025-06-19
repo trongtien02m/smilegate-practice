@@ -1,0 +1,109 @@
+@use 'sass:map';
+@use 'variables' as *;
+@use '../mixins/breakpoints' as *;
+
+@for $i from 0 through 20 {
+  $value: $i * 0.25rem;
+
+  .p-#{$i} {
+    padding: $value;
+  }
+  .pt-#{$i} {
+    padding-top: $value;
+  }
+  .pb-#{$i} {
+    padding-bottom: $value;
+  }
+  .pl-#{$i} {
+    padding-left: $value;
+  }
+  .pr-#{$i} {
+    padding-right: $value;
+  }
+  .px-#{$i} {
+    padding-left: $value;
+    padding-right: $value;
+  }
+  .py-#{$i} {
+    padding-top: $value;
+    padding-bottom: $value;
+  }
+
+  .m-#{$i} {
+    margin: $value;
+  }
+  .mt-#{$i} {
+    margin-top: $value;
+  }
+  .mb-#{$i} {
+    margin-bottom: $value;
+  }
+  .ml-#{$i} {
+    margin-left: $value;
+  }
+  .mr-#{$i} {
+    margin-right: $value;
+  }
+  .mx-#{$i} {
+    margin-left: $value;
+    margin-right: $value;
+  }
+  .my-#{$i} {
+    margin-top: $value;
+    margin-bottom: $value;
+  }
+
+  @each $bp, $bpVal in $breakpoints {
+    @include respond($bp) {
+      @at-root {
+        .#{$bp}\:p-#{$i} {
+          padding: $value;
+        }
+        .#{$bp}\:pt-#{$i} {
+          padding-top: $value;
+        }
+        .#{$bp}\:pb-#{$i} {
+          padding-bottom: $value;
+        }
+        .#{$bp}\:pl-#{$i} {
+          padding-left: $value;
+        }
+        .#{$bp}\:pr-#{$i} {
+          padding-right: $value;
+        }
+        .#{$bp}\:px-#{$i} {
+          padding-left: $value;
+          padding-right: $value;
+        }
+        .#{$bp}\:py-#{$i} {
+          padding-top: $value;
+          padding-bottom: $value;
+        }
+
+        .#{$bp}\:m-#{$i} {
+          margin: $value;
+        }
+        .#{$bp}\:mt-#{$i} {
+          margin-top: $value;
+        }
+        .#{$bp}\:mb-#{$i} {
+          margin-bottom: $value;
+        }
+        .#{$bp}\:ml-#{$i} {
+          margin-left: $value;
+        }
+        .#{$bp}\:mr-#{$i} {
+          margin-right: $value;
+        }
+        .#{$bp}\:mx-#{$i} {
+          margin-left: $value;
+          margin-right: $value;
+        }
+        .#{$bp}\:my-#{$i} {
+          margin-top: $value;
+          margin-bottom: $value;
+        }
+      }
+    }
+  }
+}
