@@ -14,9 +14,11 @@
 </template>
 
 <script setup lang="ts">
-import Navigation from '@/components/Navigation.vue';
-import NavigationMobile from '@/components/NavigationMobile.vue';
 import { useScreenSize } from '@/composables/useScreenSize';
+import { defineAsyncComponent } from 'vue';
+
+const Navigation = defineAsyncComponent(() => import('@/components/Navigation.vue'));
+const NavigationMobile = defineAsyncComponent(() => import('@/components/NavigationMobile.vue'));
 
 const { isSmAndUp } = useScreenSize();
 </script>
