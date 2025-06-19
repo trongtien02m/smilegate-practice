@@ -8,7 +8,7 @@ import { generateLoremp } from '@/helpers/utilities';
 
 import type { Photo } from '@/types/photo';
 
-export const usePhotoStore = defineStore('gallery', () => {
+export const usePhotoStore = defineStore('photo', () => {
   const isLoading = ref<boolean>(false);
   const photoCount = ref<number>(48);
   const photos = ref<Photo[]>([]);
@@ -20,7 +20,9 @@ export const usePhotoStore = defineStore('gallery', () => {
 
     await new Promise((resolve) => setTimeout(resolve, waitingTime));
 
-    for (let i = 0; i < 12; i++) {
+    const currentPhotoCount = photos.value.length;
+
+    for (let i = currentPhotoCount; i < currentPhotoCount + 12; i++) {
       const src = Math.random() < 0.5 ? landscape : portrait;
       photos.value.push({
         id: i,
